@@ -9,11 +9,12 @@ const game = new ex.Engine({
         height: 256,
     },
     viewport: {
-        width: 800,
-        height: 800
+        width: 256 * 4,
+        height: 256 * 4
     },
     suppressPlayButton: true,
-    antialiasing: false
+    pixelArt: true,
+    pixelRatio: 4,
 });
 
 game.start(loader).then(() => {
@@ -31,6 +32,7 @@ game.start(loader).then(() => {
         game.currentScene.camera.strategy.lockToActor(player);
         return player;
     });
+    // Resources.LdtkResource.getLevel('Level_0')?.layers
     // Provide a type to the plugin to use for a specific entity identifier
     // Player.ts
     Resources.LdtkResource.addToScene(game.currentScene, {

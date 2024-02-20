@@ -9,9 +9,9 @@
   "author": "Erik Onarheim",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "@excaliburjs/plugin-ldtk": "^0.28.7",
-    "excalibur": "^0.28.7",
-    "parcel": "^2.11.0",
-    "typescript": "^5.3.3"
+    "@excaliburjs/plugin-ldtk": "0.29.0",
+    "excalibur": "0.29.0",
+    "parcel": "2.11.0",
+    "typescript": "5.3.3"
   }
 }
