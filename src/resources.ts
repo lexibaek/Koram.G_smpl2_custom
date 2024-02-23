@@ -4,10 +4,11 @@ import heroImgPath from '../res/Solaria Demo Pack Update 03/Solaria Demo Pack Up
 import tilesetPath from '../res/Solaria Demo Pack Update 03/Solaria Demo Pack Update 03/16x16/Tilesets/Solaria Demo Update 01.png';
 import ldtkLevel0 from '../res/top-down/Level_0.ldtkl';
 import ldtkLevel1 from '../res/top-down/Level_1.ldtkl';
+import ldtkHouse from '../res/top-down/House.ldtkl';
 import ldtkPath from '../res/top-down.ldtk';
 
 export const Resources = {
-    HeroSpriteSheetPng: new ImageSource(heroImgPath, false, ImageFiltering.Pixel),
+    HeroSpriteSheetPng: new ImageSource(heroImgPath),
     LdtkResource: new LdtkResource(ldtkPath, {
         useTilemapCameraStrategy: true,
         useMapBackgroundColor: true,
@@ -16,6 +17,7 @@ export const Resources = {
             { path: 'Hero 01.png', output: heroImgPath },
             { path: 'Level_0.ldtkl', output: ldtkLevel0 },
             { path: 'Level_1.ldtkl', output: ldtkLevel1 },
+            { path: 'House.ldtkl', output: ldtkHouse },
             { path: 'Solaria Demo Update 01.png', output: tilesetPath },
         ]
     })

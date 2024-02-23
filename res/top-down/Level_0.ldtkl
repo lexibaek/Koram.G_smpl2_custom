@@ -182,25 +182,6 @@
 					"__worldY": 176
 				},
 				{
-					"__identifier": "PlayerStart",
-					"__grid": [4,9],
-					"__pivot": [0,0],
-					"__tags": [],
-					"__tile": { "tilesetUid": 8, "x": 0, "y": 0, "w": 16, "h": 16 },
-					"__smartColor": "#BE2F2F",
-					"iid": "638cc210-6280-11ee-bc44-cb342b86cd82",
-					"width": 16,
-					"height": 16,
-					"defUid": 5,
-					"px": [64,144],
-					"fieldInstances": [
-						{ "__identifier": "Health", "__type": "Float", "__value": 100, "__tile": null, "defUid": 13, "realEditorValues": [] },
-						{ "__identifier": "Attack", "__type": "Float", "__value": 25, "__tile": null, "defUid": 14, "realEditorValues": [] }
-					],
-					"__worldX": 64,
-					"__worldY": 144
-				},
-				{
 					"__identifier": "Sword",
 					"__grid": [11,8],
 					"__pivot": [0,0],
@@ -233,7 +214,7 @@
 							"id": "V_Bool",
 							"params": [ true ]
 						}] },
-						{ "__identifier": "zoom", "__type": "Float", "__value": 2, "__tile": null, "defUid": 18, "realEditorValues": [] }
+						{ "__identifier": "zoom", "__type": "Float", "__value": 2, "__tile": null, "defUid": 18, "realEditorValues": [{ "id": "V_Float", "params": [2] }] }
 					],
 					"__worldX": 104,
 					"__worldY": 136
