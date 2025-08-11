@@ -1,8 +1,6 @@
-
 import * as ex from "excalibur";
 import { Player } from './player';
 import { Resources, loader } from "./resources";
-import { House } from "./house";
 import { Overworld } from "./overworld";
 
 const game = new ex.Engine({
@@ -14,16 +12,10 @@ const game = new ex.Engine({
     displayMode: ex.DisplayMode.FitScreenAndFill,
     pixelArt: true,
     pixelRatio: 4,
+    physics: { gravity: ex.vec(0, 1200) },
     scenes: {
         overworld: {
             scene: Overworld,
-            transitions: {
-                out: new ex.FadeInOut({direction: 'out', duration: 1000, color: ex.Color.Black}),
-                in: new ex.FadeInOut({direction: 'in', duration: 1000, color: ex.Color.Black})
-            }
-        },
-        house: {
-            scene: House,
             transitions: {
                 out: new ex.FadeInOut({direction: 'out', duration: 1000, color: ex.Color.Black}),
                 in: new ex.FadeInOut({direction: 'in', duration: 1000, color: ex.Color.Black})
@@ -44,27 +36,6 @@ Resources.LdtkResource.registerEntityIdentifierFactory('PlayerStart', (props) =>
     return player;
 });
 
-Resources.LdtkResource.registerEntityIdentifierFactory('Door', (props) => {
-    const trigger = new ex.Trigger({
-        width: props.entity.width,
-        height: props.entity.height,
-        pos: props.worldPos.add(ex.vec(props.entity.width/2, props.entity.height/2)),
-        filter: (entity) => {
-            return entity instanceof Player
-        },
-        action: () => {
-            game.goToScene(props.entity.fieldInstances[0].__value);
-        }
-    });
-    return trigger;
-});
-
-const inTransition = new ex.FadeInOut({
-    duration: 1000,
-    direction: 'in',
-    color: ex.Color.ExcaliburBlue
-});
 game.start('overworld', {
-    loader,
-    inTransition
+    loader
 });
