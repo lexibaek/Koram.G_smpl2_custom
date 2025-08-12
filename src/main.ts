@@ -11,6 +11,7 @@ const game = new ex.Engine({
     suppressPlayButton: true,
     displayMode: ex.DisplayMode.FitScreenAndFill,
     pixelArt: true,
+    // Force pixel ratio to 1 in development to avoid HiDPI warnings
     pixelRatio: 1,
     physics: { gravity: ex.vec(0, 1200) },
     scenes: {
