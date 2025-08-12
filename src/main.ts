@@ -3,6 +3,9 @@ import { Player } from './player';
 import { Resources, loader } from "./resources";
 import { Overworld } from "./overworld";
 
+const fadeOut = new ex.FadeInOut({ direction: 'out', duration: 1000, color: ex.Color.Black });
+const fadeIn = new ex.FadeInOut({ direction: 'in', duration: 1000, color: ex.Color.Black });
+
 const game = new ex.Engine({
     resolution: {
         width: 256,
@@ -13,17 +16,14 @@ const game = new ex.Engine({
     pixelArt: true,
     // Force pixel ratio to 1 in development to avoid HiDPI warnings
     pixelRatio: 1,
-    physics: { gravity: ex.vec(0, 1200) },
-    scenes: {
-        overworld: {
-            scene: Overworld,
-            transitions: {
-                out: new ex.FadeInOut({direction: 'out', duration: 1000, color: ex.Color.Black}),
-                in: new ex.FadeInOut({direction: 'in', duration: 1000, color: ex.Color.Black})
-            }
-        }
-    }
+    physics: { gravity: ex.vec(0, 1200) }
 });
+
+const overworld = new Overworld();
+overworld.add(fadeOut);
+overworld.add(fadeIn);
+
+game.addScene('overworld', { scene: overworld, transitions: { out: fadeOut, in: fadeIn } });
 
 Resources.LdtkResource.registerEntityIdentifierFactory('PlayerStart', (props) => {
     const player = new Player({
@@ -38,5 +38,6 @@ Resources.LdtkResource.registerEntityIdentifierFactory('PlayerStart', (props) =>
 });
 
 game.start('overworld', {
-    loader
+    loader,
+    inTransition: fadeIn
 });
