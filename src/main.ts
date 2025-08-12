@@ -11,7 +11,7 @@ const game = new ex.Engine({
     suppressPlayButton: true,
     displayMode: ex.DisplayMode.FitScreenAndFill,
     pixelArt: true,
-    pixelRatio: 4,
+    pixelRatio: 1,
     physics: { gravity: ex.vec(0, 1200) },
     scenes: {
         overworld: {
