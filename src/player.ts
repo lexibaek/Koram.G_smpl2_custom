@@ -12,7 +12,7 @@ export class Player extends ex.Actor {
         });
 
         this.graphics.use(new ex.Rectangle({ width: 20, height: 32, color: ex.Color.Red }));
-        (this.body as any).useBoxCollider(20, 32);
+        this.collider.useBoxCollider(20, 32);
     }
 
     onPreUpdate(engine: ex.Engine): void {
