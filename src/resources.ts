@@ -5,10 +5,11 @@ import tilesetPath from '../res/Solaria Demo Pack Update 03/Solaria Demo Pack Up
 import ldtkLevel0 from '../res/top-down/Level_0.ldtkl?url';
 import ldtkLevel1 from '../res/top-down/Level_1.ldtkl?url';
 import ldtkHouse from '../res/top-down/House.ldtkl?url';
+import ldtkProject from '../res/top-down.ldtk?url';
 
 export const Resources = {
     HeroSpriteSheetPng: new ImageSource(heroImgPath),
-    LdtkResource: new LdtkResource('/res/top-down/top-down.ldtk', {
+    LdtkResource: new LdtkResource(ldtkProject, {
         useTilemapCameraStrategy: true,
         useMapBackgroundColor: true,
         // Path map intercepts and redirects to work around parcel's static bundling
