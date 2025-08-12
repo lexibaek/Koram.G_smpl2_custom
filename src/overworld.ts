@@ -22,7 +22,7 @@ export class Overworld extends Scene {
         if (player instanceof Player) {
             const deadZoneStrategy: ex.CameraStrategy<Actor> = {
                 target: player as Actor,
-                action: (target, cam) => {
+                action: (target, cam, _eng, _elapsed) => {
                     const focus = cam.getFocus();
                     const diff = target.center.sub(focus);
                     let newX = focus.x;

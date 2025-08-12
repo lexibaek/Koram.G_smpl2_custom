@@ -12,14 +12,14 @@ export const Resources = {
     LdtkResource: new LdtkResource(ldtkProject, {
         useTilemapCameraStrategy: true,
         useMapBackgroundColor: true,
-        // Path map intercepts and redirects to work around parcel's static bundling
-        pathMap: {
-            'Hero 01.png': heroImgPath,
-            'Level_0.ldtkl': ldtkLevel0,
-            'Level_1.ldtkl': ldtkLevel1,
-            'House.ldtkl': ldtkHouse,
-            'Solaria Demo Update 01.png': tilesetPath,
-        } as any
+        // Path map intercepts and redirects to work around bundling
+        pathMap: [
+            { path: 'Hero 01.png', output: heroImgPath },
+            { path: 'Level_0.ldtkl', output: ldtkLevel0 },
+            { path: 'Level_1.ldtkl', output: ldtkLevel1 },
+            { path: 'House.ldtkl', output: ldtkHouse },
+            { path: 'Solaria Demo Update 01.png', output: tilesetPath }
+        ]
     })
 } as const;
 
