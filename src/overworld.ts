@@ -5,12 +5,14 @@ import { Player } from "./player";
 
 
 export class Overworld extends Scene {
-    
+
     onInitialize(engine: Engine<any>): void {
         Resources.LdtkResource.addToScene(this, {
             pos: vec(0, 0),
             levelFilter: ['Level_0', 'Level_1']
         });
+        const bounds = Resources.LdtkResource.getLevelBounds(['Level_0', 'Level_1']);
+        (engine.currentScene.camera as any).worldBounds = bounds;
     }
 
     onActivate(context: SceneActivationContext<unknown>): void {
