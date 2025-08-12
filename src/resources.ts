@@ -22,13 +22,13 @@ export const Resources = {
     })
 } as const;
 
-// Temporary debug load event
-(Resources.LdtkResource as any).on('load', () => {
-    console.log('ldtkLevel1:', ldtkLevel1);
-    console.log('tilesetPath:', tilesetPath);
-});
-
 export const loader = new Loader();
 for (let resource of Object.values(Resources)) {
     loader.addResource(resource);
 }
+
+// Temporary debug log after resources load
+loader.events.on('complete', () => {
+    console.log('Debug Level_1 path:', ldtkLevel1);
+    console.log('Debug tileset path:', tilesetPath);
+});
